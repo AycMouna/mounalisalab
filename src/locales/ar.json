@@ -1,0 +1,15 @@
+{
+    "home": "الصفحة الرئيسية",
+    "upload_analyze": "رفع وتحليل",
+    "results": "النتائج",
+    "profile": "الملف الشخصي",
+    "login": "تسجيل الدخول",
+    "home_page": {
+      "title": "يقوم بـ",
+      "ai_powered": "مدعوم بالذكاء الاصطناعي",
+      "ai_medical_classifications": "تصنيف الصور الطبية بالذكاء الاصطناعي",
+      "scans_for_patients": "فحوصات للمرضى.",
+      "upload_scan": "تحميل فحص",
+      "ai_medical_scanning": "فحص طبي بالذكاء الاصطناعي"
+    }
+  }

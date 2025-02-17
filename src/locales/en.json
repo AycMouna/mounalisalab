@@ -1,0 +1,15 @@
+{
+    "home": "Home",
+    "upload_analyze": "Upload and Analyze",
+    "results": "Results",
+    "profile": "Profile",
+    "login": "Login",
+    "home_page": {
+      "title": "Performs",
+      "ai_powered": "AI-Powered",
+      "ai_medical_classifications": "AI Medical Image Classifications",
+      "scans_for_patients": "Scans for Patients.",
+      "upload_scan": "Upload Scan",
+      "ai_medical_scanning": "AI Medical Scanning"
+    }
+  }

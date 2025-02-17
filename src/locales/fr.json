@@ -1,0 +1,15 @@
+{
+    "home": "Accueil",
+    "upload_analyze": "Télécharger et analyser",
+    "results": "Résultats",
+    "profile": "Profil",
+    "login": "Connexion",
+    "home_page": {
+      "title": "Effectue",
+      "ai_powered": "Alimenté par l'IA",
+      "ai_medical_classifications": "Classifications d'images médicales par IA",
+      "scans_for_patients": "Scans pour les patients.",
+      "upload_scan": "Télécharger un scan",
+      "ai_medical_scanning": "Analyse médicale par IA"
+    }
+  }
