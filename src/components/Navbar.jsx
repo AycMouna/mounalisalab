@@ -1,114 +1,55 @@
-import { Link } from "react-router-dom";
-import { useState } from "react";
-import { Search, Menu } from "lucide-react";
-import { useTranslation } from "react-i18next";
+import React from 'react';
+import { useLocation, useNavigate, Link } from 'react-router-dom';
+import logo from '/src/assets/logo2.png'; // Ensure this path is correct
 
-const Navbar = ({ currentPage, setCurrentPage }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const { t, i18n } = useTranslation();
+const Navbar = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
 
-  const handleLanguageChange = () => {
-    i18n.changeLanguage(i18n.language === "en" ? "fr" : i18n.language === "fr" ? "ar" : "en");
-  };
-
-  const pages = [
-    { title: "Home", id: 0 },
-    { title: "Services", id: 1 },
-    { title: "Team", id: 2 },
-    { title: "Story", id: 3 },
-    { title: "ContactUs", id: 4 },
-  ];
-
-  const scrollToPage = (index) => {
-    const container = document.getElementById("swipe-container");
-    if (container) {
-      container.scrollTo({
-        left: container.clientWidth * index,
-        behavior: "smooth",
-      });
-      setCurrentPage(index);
-    }
-  };
+  // Check if it's a home-like page
+  const isHomePage = ["/", "/team", "/story", "/contact", "/tutorial"].includes(location.pathname);
 
   return (
-    <nav className="bg-white shadow-md fixed w-full top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
-          {/* Left side - Logo and Name */}
-          <div className="flex items-center">
-            <Link
-              to="/"
-              onClick={() => scrollToPage(0)}
-              className="flex items-center space-x-2"
-            >
-              <img
-                src="src/assets/logo2.png"
-                alt="Logo"
-                className="h-16 w-auto"
-              />
-              <span className="text-2xl font-bold text-blue-800 hover:text-teal-500 transition-colors">
-                MounalisaLab
-              </span>
-            </Link>
-          </div>
+    <nav className={`top-0 left-0 right-0 z-50 h-16 flex items-center justify-between px-6 transition-all duration-300
+      ${isHomePage ? 'bg-transparent absolute' : 'bg-white shadow-md fixed'}`}>
+      
+      {/* Clickable Logo and Name */}
+      <Link to="/" className="flex items-center space-x-4 ml-6">
+        <img src={logo} alt="Logo" className="h-16" />
+        <span className={`font-semibold text-2xl ${isHomePage ? 'text-white' : 'text-blue-800'}`}> {/* Changed to text-blue-800 */}
+          MounalisaLab
+        </span>
+      </Link>
 
-          {/* Center - Navigation Links */}
-          <div className="hidden md:flex items-center space-x-8">
-            {pages.map((page) => (
-              <button
-                key={page.id}
-                onClick={() => scrollToPage(page.id)}
-                className={`text-blue-800 hover:text-teal-500 transition-colors ${
-                  currentPage === page.id ? "font-bold text-teal-500" : ""
-                }`}
-              >
-                {page.title}
-              </button>
-            ))}
-          </div>
+      <div className="flex items-center space-x-4">
+        {/* Contact Link */}
+        <Link 
+          to="/contact" 
+          className={`${isHomePage ? 'text-white' : 'text-gray-800'} hover:text-green-400 transition-colors duration-300`}> {/* Lighter green hover */}
+          Contact
+        </Link>
 
-          {/* Right side - Search, Login, and Menu */}
-          <div className="flex items-center space-x-4">
-            <button className="p-2 text-blue-800 hover:text-teal-500 transition-colors">
-              <Search size={20} />
-            </button>
-            <Link
-              to="/login"
-              className="px-4 py-2 text-blue-800 hover:text-teal-500 transition-colors"
-            >
-              {t("login")}
-            </Link>
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="p-2 text-blue-800 hover:text-teal-500 transition-colors md:hidden"
-            >
-              <Menu size={20} />
-            </button>
-          </div>
-        </div>
+        {/* Home Link */}
+        <Link 
+          to="/" 
+          className={`${isHomePage ? 'text-white' : 'text-gray-800'} hover:text-green-400 transition-colors duration-300`}> {/* Lighter green hover */}
+          Home
+        </Link>
+
+        {/* Check Results Link */}
+        <Link 
+          to="/check-results" 
+          className={`${isHomePage ? 'text-white' : 'text-gray-800'} hover:text-green-400 transition-colors duration-300`}> {/* Lighter green hover */}
+          Check Results
+        </Link>
+
+        {/* Sign In Button */}
+        <button 
+          onClick={() => navigate('/login')} 
+          className={`px-4 py-2 rounded-full transition ${isHomePage ? 'bg-white/20 text-white hover:bg-green-400/20' : 'bg-gray-100 text-gray-800 hover:bg-green-400/20'}`}> {/* Lighter green hover */}
+          Sign In
+        </button>
       </div>
-
-      {/* Mobile menu */}
-      {isOpen && (
-        <div className="md:hidden bg-white shadow-lg">
-          <div className="px-4 pt-2 pb-3 space-y-1">
-            {pages.map((page) => (
-              <button
-                key={page.id}
-                onClick={() => {
-                  scrollToPage(page.id);
-                  setIsOpen(false);
-                }}
-                className={`block w-full text-left px-3 py-2 text-blue-800 hover:text-teal-500 transition-colors ${
-                  currentPage === page.id ? "font-bold text-teal-500" : ""
-                }`}
-              >
-                {page.title}
-              </button>
-            ))}
-          </div>
-        </div>
-      )}
     </nav>
   );
 };

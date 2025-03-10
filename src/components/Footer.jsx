@@ -4,14 +4,14 @@ const Footer = () => {
   return (
     <footer className="bg-white shadow-sm">
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-        {/* Grid Layout for Footer Links */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+        {/* Flex Layout for Footer Links, centered */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 text-center gap-8">
           {/* About Section */}
           <div>
             <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider">
               À propos
             </h3>
-            <ul className="mt-4 space-y-3">
+            <ul className="mt-4 flex flex-col items-center space-y-2">
               <li>
                 <Link
                   to="/about"
@@ -36,46 +36,13 @@ const Footer = () => {
             <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider">
               Services
             </h3>
-            <ul className="mt-4 space-y-3">
+            <ul className="mt-4 flex flex-col items-center space-y-2">
               <li>
                 <Link
-                  to="/services/ai-analysis"
+                  to="/our-technology"
                   className="text-base text-gray-600 hover:text-gray-900 transition-colors"
                 >
                   Analyse IA
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/services/consultation"
-                  className="text-base text-gray-600 hover:text-gray-900 transition-colors"
-                >
-                  Consultation
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Legal Section */}
-          <div>
-            <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider">
-              Légal
-            </h3>
-            <ul className="mt-4 space-y-3">
-              <li>
-                <Link
-                  to="/privacy"
-                  className="text-base text-gray-600 hover:text-gray-900 transition-colors"
-                >
-                  Confidentialité
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/terms"
-                  className="text-base text-gray-600 hover:text-gray-900 transition-colors"
-                >
-                  Conditions
                 </Link>
               </li>
             </ul>
@@ -86,15 +53,7 @@ const Footer = () => {
             <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider">
               Contact
             </h3>
-            <ul className="mt-4 space-y-3">
-              <li>
-                <Link
-                  to="/support"
-                  className="text-base text-gray-600 hover:text-gray-900 transition-colors"
-                >
-                  Support
-                </Link>
-              </li>
+            <ul className="mt-4 flex flex-col items-center space-y-2">
               <li>
                 <Link
                   to="/contact"
@@ -108,8 +67,8 @@ const Footer = () => {
         </div>
 
         {/* Copyright Section */}
-        <div className="mt-12 border-t border-gray-200 pt-8">
-          <p className="text-base text-gray-500 text-center">
+        <div className="mt-12 border-t border-gray-200 pt-8 text-center">
+          <p className="text-base text-gray-500">
             &copy; {new Date().getFullYear()} MounalisaLab. Tous droits réservés.
           </p>
         </div>
